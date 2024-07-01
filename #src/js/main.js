@@ -593,18 +593,13 @@ if (intro) {
     spaceBetween: 10,
     observer: true,
     observeParents: true,
-    effect: "fade",
-    fadeEffect: {
-      crossFade: true
-    },
-    allowTouchMove: false,
     pagination: {
       el: intro.querySelector('.swiper-pagination'),
       type: 'bullets',
       clickable: true
     },
     autoplay: {
-      delay: 3500,
+      delay: 5000,
       disableOnInteraction: false,
       pauseOnMouseEnter: true
     },

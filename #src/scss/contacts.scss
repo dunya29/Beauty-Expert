@@ -1,6 +1,9 @@
 .contacts {
     .tabs {
         justify-content: center;
+        a.active {
+            pointer-events: none;
+        }
     }
     .page-content {
         h3:first-child {

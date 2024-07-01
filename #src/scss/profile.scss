@@ -499,7 +499,7 @@
         font-weight: 500;
     }
     textarea {
-        height: 24px;
+        height: 20px;
         max-height: 200px;
     }
     .btn {
@@ -513,6 +513,11 @@
             height: 100%;
         }
     }
+    &__txt {
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+    }
     @media (max-width: $bp2) {
         padding: 4px 4px 4px 16px;
         grid-template-columns: 1fr 31px;
@@ -525,6 +530,9 @@
             height: 31px;
             padding: 8px;
             border-radius: 6px;
+        }
+        &__txt {
+            min-height: 31px;
         }
     }
 }
