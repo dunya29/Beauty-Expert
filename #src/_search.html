@@ -1,0 +1,17 @@
+<!--search-form-->
+<form action="" class="search-form" onsubmit="event.preventDefault();searchFormSuccess(this)">
+    <div class="search-form__inner">
+        <svg class="search-form__icon"><use xlink:href="img/icons/sprite.svg#search"></use></svg>
+        <input type="text" name="" placeholder="Найти">
+        <button type="reset" class="search-form__reset" aria-label="Очистить поиск">
+            <svg><use xlink:href="img/icons/sprite.svg#close"></use></svg>
+        </button>
+    </div>
+    @@if (results === true) {
+    <div class="search-form__result">
+        <a href="#">Карбокситерапия</a>
+        <a href="#">Похожий вариант</a>
+        <a href="#">Похожий вариант2</a>
+    </div>
+    }
+</form>
