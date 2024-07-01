@@ -1,3 +1,11 @@
+if (document.querySelector(".preloader")) {
+  window.addEventListener("load", (event) => {
+    setTimeout(() => {
+      enableScroll()
+      document.body.classList.add('loaded');
+    }, 100);
+  });
+}
 const fixedBtns = document.querySelector(".fixed-btns")
 const jsPageUp = document.querySelector(".js-pageUp")
 const customSelect = document.querySelectorAll(".select-custom")

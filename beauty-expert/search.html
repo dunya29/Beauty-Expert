@@ -20,6 +20,12 @@
 
 <body>
     <div class="wrap">
+        <!--preloader-->
+<div class="preloader">
+    <div class="preloader__logo">
+        <picture><source srcset="img/logo/logo.webp" type="image/webp"><img src="img/logo/logo.png" alt=""></picture>
+    </div>
+</div>
         <!--header-->
         
 
@@ -742,7 +748,7 @@
     <div class="modal__overlay">
         <div class="modal__content">
             <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
-            <div class="modal__Scroll">
+            <div class="modal__scroll">
                 <div class="modal__top">
                     <h3>Зарегистрироваться</h3>
                 </div>
@@ -796,7 +802,7 @@
                                         <div class="item-form__error"></div>
                                     </div>
                                     <div class="item-form">
-                                        <input type="text" placeholder="Повторите пароль*">
+                                        <input type="text" placeholder="Повторите*">
                                         <div class="item-form__error"></div>
                                     </div>
                                 </div>
@@ -873,7 +879,7 @@
                                         <div class="item-form__error"></div>
                                     </div>
                                     <div class="item-form">
-                                        <input type="text" placeholder="Повторите пароль*">
+                                        <input type="text" placeholder="Повторите*">
                                         <div class="item-form__error"></div>
                                     </div>
                                 </div>
@@ -1108,7 +1114,8 @@
         <li><button class="btn fixed-menu__cat"><svg><use xlink:href="img/icons/sprite.svg#catalog"></use></svg><span>Каталог</span></button></li>           
         <li><a href=""><svg><use xlink:href="img/icons/sprite.svg#fav"></use></svg><span>Избранное</span></a></li>
         <li><a href=""><svg><use xlink:href="img/icons/sprite.svg#cart"></use></svg><span>Корзина</span></a></li>
-        <li><a href="profile.html"><svg><use xlink:href="img/icons/sprite.svg#profile"></use></svg><span>Профиль</span></a></li>
+        <!-- <li><a href="profile.html"><svg><use xlink:href="img/icons/sprite.svg#profile"></use></svg><span>Профиль</span></a></li> -->
+        <li><button class="btn mod-open-btn" data-modal="acc-modal"><svg><use xlink:href="img/icons/sprite.svg#profile"></use></svg><span>Профиль</span></button></li>
     </ul>
 </div>
 <!--mobile-cat-->
