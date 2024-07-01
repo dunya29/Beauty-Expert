@@ -78,11 +78,17 @@ function closeSelectCustom(select) {
   select.classList.remove("open");
   select.setAttribute("aria-expanded", false);
 }
-// formSuccess
+//setSuccessTxt
 function setSuccessTxt(title = false, btnTxt = false) {
   successModal.querySelector("h3").textContent = title ? title : "Заявка успешно отправлена"
   successModal.querySelector(".main-btn").textContent = btnTxt ? btnTxt : "Закрыть"
 }
+//setErrorTxt
+function setSuccessTxt(title = false, btnTxt = false) {
+  errorModal.querySelector("h3").textContent = title ? title : "Что-то пошло не так"
+  errorModal.querySelector(".main-btn").textContent = btnTxt ? btnTxt : "Закрыть"
+}
+// formSuccess
 function formSuccess(form, title = false, btnTxt = false) {
   form.querySelectorAll(".item-form").forEach(item => item.classList.remove("error"))
   form.querySelectorAll("input").forEach(inp => {

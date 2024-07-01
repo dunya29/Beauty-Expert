@@ -1,396 +1,392 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link type="image/x-icon" rel="shortcut icon" href="img/favicon/favicon.ico">
-    <link type="image/png" sizes="32x32" rel="icon" href="img/favicon/favicon-32x32.png">
-    <link type="image/png" sizes="192x192" rel="icon" href="img/favicon/android-icon-192x192.png">
-    <link sizes="120x120" rel="apple-touch-icon" href="img/favicon/apple-icon-120x120.png">
-    <link sizes="180x180" rel="apple-touch-icon" href="img/favicon/apple-icon-180x180.png">
-    <meta name="msapplication-TileImage" content="img/favicon/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="preload" href="fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin> 
-    <link href="css/fancybox.min.css" type="text/css" rel="stylesheet">
-    <link href="css/style.min.css" type="text/css" rel="stylesheet">
-    <title>Производители | Интернет-магазин для косметологов Бьюти-эксперт</title>
-</head>
+@@include('_head.html', {   
+    "title": "Главная"
+})
 
 <body>
     <div class="wrap">
-        <!--preloader-->
-<div class="preloader">
-    <div class="preloader__logo">
-        <picture><source srcset="img/logo/logo.webp" type="image/webp"><img src="img/logo/logo.png" alt=""></picture>
-    </div>
-</div>
+        @@include('_preloader.html')
         <!--header-->
-        
-
-    <header class="header">
-
-    <div class="header__inner">
-        <div class="header__top">
-            <div class="container">
-                <button class="header__priceBtn mod-open-btn" data-modal="price-modal">Получить прайс-лист</button>
-                <div class="header__contacts">
-                    <a href="tel:84959891819">+7 495 989-18-19</a>
-                    <a href="tel:88003331819">8 800 333-18-19</a>
-                </div>
-                <div class="header__social">
-                    <a href="#" target="_blank" class="header__social-icon-tg">Telegram <img src="img/logo/telegram-header.svg" alt="Telegram"></a>
-                    <a href="#" target="_blank" class="header__social-icon-wp">WhatsApp <img src="img/logo/whatsapp-header.svg" alt="WhatsApp"></a>
-                </div>
-            </div>
-        </div>
-        <div class="header__bottom">
-            <div class="container">
-                <div class="header__left">
-                    <div class="icon-menu icon-menu--mob">
-                        <div class="icon-menu__items">
-                            <span class="icon-menu__item" style="--icon-i: 1"></span>
-                            <span class="icon-menu__item" style="--icon-i: 2"></span>
-                            <span class="icon-menu__item" style="--icon-i: 3"></span>
-                            <span class="icon-menu__cross1" style="--icon-i: 4"></span>
-                            <span class="icon-menu__cross2" style="--icon-i: 5"></span>
-                        </div>
-                    </div>
-                    <a href="#" class="header__logo"><picture><source srcset="img/logo/logo.webp" type="image/webp"><img src="img/logo/logo.png" alt="Логотип"></picture></a>      
-                    <div class="header__about">
-                        <span>Магазин для кометологов</span>
-                        <span>Доставка по всей России</span>
-                    </div>
-                </div>
-                <div class="header__center">
-                    <div class="menu menu--desktop">
-                        <div class="icon-menu">
-                            <div class="icon-menu__items">
-                                <span class="icon-menu__item" style="--icon-i: 1"></span>
-                                <span class="icon-menu__item" style="--icon-i: 2"></span>
-                                <span class="icon-menu__item" style="--icon-i: 3"></span>
-                                <span class="icon-menu__cross1" style="--icon-i: 4"></span>
-                                <span class="icon-menu__cross2" style="--icon-i: 5"></span>
-                            </div>
-                            <div class="icon-menu__txt">Меню</div>
-                        </div>
-                        <div class="menu__inner">
-                            <nav>
-                                <ul class="menu__list">
-                                    <li>
-                                        <div class="menu__header">Покупателю<svg><use xlink:href="img/icons/sprite.svg#btn-next"></use></svg></div>
-                                        <div class="menu__dropdown">
-                                            <ul>
-                                                <li><a href="#">Оплата</a></li>
-                                                <li><a href="#">Доставка</a></li>
-                                                <li><a href="#">Гарантии</a></li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li><a href="#" class="menu__header">Поставщикам</a></li>
-                                    <li><a href="#" class="menu__header">Отзывы</a></li>
-                                    <li><a href="#" class="menu__header">Новости</a></li>
-                                    <li><a href="#" class="menu__header">Контакты</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                    
-                    
-                        <!--search-form-->
-<form action="" class="search-form" onsubmit="event.preventDefault();searchFormSuccess(this)">
-    <div class="search-form__inner">
-        <svg class="search-form__icon"><use xlink:href="img/icons/sprite.svg#search"></use></svg>
-        <input type="text" name="" placeholder="Найти">
-        <button type="reset" class="search-form__reset" aria-label="Очистить поиск">
-            <svg><use xlink:href="img/icons/sprite.svg#close"></use></svg>
-        </button>
-    </div>
-    
-</form>
-                    
-                </div>
-                <div class="header__right">
-                    <a href="#"><svg><use xlink:href="img/icons/sprite.svg#fav"></use></svg><span>7</span></a>
-                    <a href="#"><svg><use xlink:href="img/icons/sprite.svg#cart"></use></svg><span></span></a>
-                    <button class="btn main-btn header__profile mod-open-btn" data-modal="acc-modal">Войти</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="mob-menu">
-        <button class="btn-close"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
-        <div class="mob-menu__inner">
-            <div class="menu">
-                <div class="menu__inner">
-                    <nav>
-                        <ul class="menu__list">
-                            <li class="menu__item">
-                                <div class="menu__header">Покупателю<svg><use xlink:href="img/icons/sprite.svg#btn-next"></use></svg></div>
-                                <div class="menu__dropdown">
-                                    <ul>
-                                        <li><a href="#">Оплата</a></li>
-                                        <li><a href="#">Доставка</a></li>
-                                        <li><a href="#">Гарантии</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="menu__item"><a href="#" class="menu__header">Поставщикам</a></li>
-                            <li class="menu__item"><a href="#" class="menu__header">Отзывы</a></li>
-                            <li class="menu__item"><a href="#" class="menu__header">Новости</a></li>
-                            <li class="menu__item"><a href="#" class="menu__header">Контакты</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div class="header__social">
-                <a href="#" target="_blank" class="header__social-icon-wp">WhatsApp <img src="img/logo/whatsapp-header.svg" alt="WhatsApp"></a>
-                <a href="#" target="_blank" class="header__social-icon-tg">Telegram <img src="img/logo/telegram-header.svg" alt="Telegram"></a>
-            </div>
-            <div class="header__contacts">
-                <a href="tel:84959891819">+7 495 989-18-19</a>
-                <a href="tel:88003331819">8 800 333-18-19</a>
-            </div>
-            <button class="header__priceBtn mod-open-btn" data-modal="price-modal">Получить прайс-лист</button>
-        </div>
-    </div>
-</header>
+        @@include('_header.html', {"main": true, "search": false})
         <!--main-->  
         <main class="main">
             <div class="container">
-                <div class="page">
-                    <!--aside-->
-<aside class="page__aside page__aside--cat">
-    <div class="catalog-aside">
-        <nav>
-            <ul>
-                <li><a href="#">Мезонити</a></li>
-                <li><a href="#">Филлеры</a></li>
-                <li><a href="#">Skin Recovery</a></li>
-                <li><a href="#">Биоревитализанты</a></li>
-                <li><a href="#">Пробирки PRP</a></li>
-                <li><a href="#">Аппараты</a></li>
-                <li><a href="#">Канюли</a></li>
-                <li><a href="#">Косметические средства</a></li>
-                <li><a href="#">Иглы, шприцы</a></li>
-                <li><a href="#">Постпроцедурные средства</a></li>
-            </ul>
-        </nav>
-        <div class="fixed-btns">
-            <button type="button" class="btn main-btn main-btn--light js-pageUp">
-                Наверх
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                    <path d="M2.03996 8.02502L5.29996 4.76502C5.68496 4.38002 6.31496 4.38002 6.69996 4.76502L9.95996 8.02502" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </button>
-            <a href="tel:88003331819" class="fixed-btns__tel"><svg><use xlink:href="img/icons/sprite.svg#phone"></use></svg></a>
-        </div>
-    </div>
-</aside>
+                <div class="page page--main">
+                    @@include("_aside.html")
                     <div class="page__content">
-                        <div class="shadow-block">
-                            <div class="page__top">
-                                <!--breadcrumbs-->
-<div class="breadcrumbs">
-    <ul>
-        <li><a href="#" class="link">Главная</a></li>
-        <li class="active">Производители</li>
-    </ul>
-</div>
-                                <h1>Производители</h1>
-                            </div>                      
-                            <div class="section manufactures">
-                                <div class="manufactures__wrapper">
-                                    <!--item-brand-->
-<div class="item-manu">
-    <a href="#" class="item-manu__preview">
-        <div class="media-contain">
-            <picture><source srcset="img/brands-8.webp" type="image/webp"><img src="img/brands-8.png" alt="LineRase"></picture>
-        </div>
-    </a>
-    <h6><a href="#">LineRase</a></h6>
-</div>
-                                    <!--item-brand-->
-<div class="item-manu">
-    <a href="#" class="item-manu__preview">
-        <div class="media-contain">
-            <picture><source srcset="img/brands-8.webp" type="image/webp"><img src="img/brands-8.png" alt="LineRase"></picture>
-        </div>
-    </a>
-    <h6><a href="#">LineRase</a></h6>
-</div>
-                                    <!--item-brand-->
-<div class="item-manu">
-    <a href="#" class="item-manu__preview">
-        <div class="media-contain">
-            <picture><source srcset="img/brands-8.webp" type="image/webp"><img src="img/brands-8.png" alt="LineRase"></picture>
-        </div>
-    </a>
-    <h6><a href="#">LineRase</a></h6>
-</div>
-                                    <!--item-brand-->
-<div class="item-manu">
-    <a href="#" class="item-manu__preview">
-        <div class="media-contain">
-            <picture><source srcset="img/brands-8.webp" type="image/webp"><img src="img/brands-8.png" alt="LineRase"></picture>
-        </div>
-    </a>
-    <h6><a href="#">LineRase</a></h6>
-</div>
-                                    <!--item-brand-->
-<div class="item-manu">
-    <a href="#" class="item-manu__preview">
-        <div class="media-contain">
-            <picture><source srcset="img/brands-8.webp" type="image/webp"><img src="img/brands-8.png" alt="LineRase"></picture>
-        </div>
-    </a>
-    <h6><a href="#">LineRase</a></h6>
-</div>
-                                    <!--item-brand-->
-<div class="item-manu">
-    <a href="#" class="item-manu__preview">
-        <div class="media-contain">
-            <picture><source srcset="img/brands-8.webp" type="image/webp"><img src="img/brands-8.png" alt="LineRase"></picture>
-        </div>
-    </a>
-    <h6><a href="#">LineRase</a></h6>
-</div>
-                                    <!--item-brand-->
-<div class="item-manu">
-    <a href="#" class="item-manu__preview">
-        <div class="media-contain">
-            <picture><source srcset="img/brands-8.webp" type="image/webp"><img src="img/brands-8.png" alt="LineRase"></picture>
-        </div>
-    </a>
-    <h6><a href="#">LineRase</a></h6>
-</div>
-                                    <!--item-brand-->
-<div class="item-manu">
-    <a href="#" class="item-manu__preview">
-        <div class="media-contain">
-            <picture><source srcset="img/brands-8.webp" type="image/webp"><img src="img/brands-8.png" alt="LineRase"></picture>
-        </div>
-    </a>
-    <h6><a href="#">LineRase</a></h6>
-</div>
+                        <!--intro-->
+                        <section class="section intro">
+                            <div class="intro__row">
+                                <div class="item-bg item-intro">
+                                    <div class="media-cover">
+                                        <img src="img/intro-1.jpg" alt="">
+                                    </div>
+                                    <div class="item-bg__content">
+                                        <h1>Beauty Expert — магазин<br>для косметологов</h1>
+                                    </div>
                                 </div>
-                                <!--cat-bottom-->
-                                <div class="cat-bottom">
-                                    
-
-    <a href="#" class="cat-btn">Показать еще 100</a>
-
-<!--pagination-->
-<nav class="pagination">
-    <a class="nav-btn" href="#"><svg><use href="img/icons/sprite.svg#btn-prev"></use></svg></a>
-    <a class="pagination__link" href="#">1</a>
-    <a class="pagination__link current" href="#">2</a>
-    <a class="pagination__link" href="#">3</a>
-    <a class="pagination__link" href="#">4</a>
-    <span class="pagination__item">...</span>
-    <a class="pagination__link" href="#">11</a>
-    <a class="nav-btn" href="#"><svg><use href="img/icons/sprite.svg#btn-next"></use></svg></a>
-</nav>
+                                <div class="item-bg item-intro">
+                                    <div class="media-cover">
+                                        <img src="img/intro-2.jpg" alt="">
+                                    </div>
+                                    <div class="item-bg__content">
+                                        <h3>Косметические<br>средства</h3>
+                                        <a href="#" class="btn stroke-btn stroke-btn--light">Подробнее</a>
+                                    </div>
+                                </div>
+                                <div class="item-bg item-intro">
+                                    <div class="swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="media-cover">
+                                                    <img src="img/intro-3.jpg" alt="">
+                                                </div>
+                                                <div class="item-bg__content">
+                                                    <div class="item-bg__lbl">
+                                                        <span class="lbl-cert">Для сертифицированных специалистов</span>                                
+                                                    </div>
+                                                    <h2 class="h1">Филлеры<br>Brand name</h2>
+                                                    <a href="#" class="btn stroke-btn stroke-btn--light">Смотреть</a>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="media-cover">
+                                                    <img src="img/intro-2.jpg" alt="">
+                                                </div>
+                                                <div class="item-bg__content">
+                                                    <div class="item-bg__lbl">
+                                                        <span class="lbl-cert">Для сертифицированных специалистов</span>                                
+                                                    </div>
+                                                    <h2 class="h1">Филлеры<br>Brand name2</h2>
+                                                    <a href="#" class="btn stroke-btn stroke-btn--light">Смотреть</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination"></div>
+                                </div>
+                                <div class="item-bg item-intro">
+                                    <div class="media-cover">
+                                        <picture>
+                                            <source srcset="img/intro-4.webp" media="(min-width: 1400.98px)" type="image/webp">
+                                            <source srcset="img/intro-4.jpg" media="(min-width: 1400.98px)">
+                                            <source srcset="img/intro-4-m.webp" type="image/webp">
+                                            <source srcset="img/intro-4-m.jpg"> 
+                                            <img src="img/intro-4.jpg" alt="">
+                                        </picture>
+                                    </div>
+                                    <div class="item-bg__content">
+                                        <h3>LINERASE<br>коллаген</h3>
+                                        <a href="#" class="btn stroke-btn stroke-btn--light">Подробнее</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </section>
+                        <!--services-->
+                        <section class="section services">
+                            <div class="mb-40 services__top">
+                                <h2>С продукцией Beauty Expert вы всегда <span>будете на шаг впереди</span> своих конкурентов</h2>
+                                <h4>Мы предлагаем традиционные и инновационные препараты лучших мировых брендов врачам-косметологам, которые ценят своих клиентов и дорожат имиджем и репутацией</h4>
+                            </div>
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <a href="#" class="item-services">
+                                            <div class="item-services__img">
+                                                <div class="media-contain"><img src="img/service-1.png" alt="Мезотерапия"></div>
+                                            </div>
+                                            <h6>Мезотерапия</h6>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="item-services">
+                                            <div class="item-services__img">
+                                                <div class="media-contain"><img src="img/service-2.png" alt="Тредлифтинг"></div>
+                                            </div>
+                                            <h6>Тредлифтинг</h6>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="item-services">
+                                            <div class="item-services__img">
+                                                <div class="media-contain"><img src="img/service-3.png" alt="Реструктуризация"></div>
+                                            </div>
+                                            <h6>Реструктуризация</h6>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="item-services">
+                                            <div class="item-services__img">
+                                                <div class="media-contain"><img src="img/service-4.png" alt="Ботулинотерапия"></div>
+                                            </div>
+                                            <h6>Ботулинотерапия</h6>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">                                       
+                                        <a href="#" class="item-services">
+                                            <div class="item-services__img">
+                                               <div class="media-contain"><img src="img/service-5.png" alt="Контурная пластика"></div> 
+                                            </div>                                   
+                                            <h6>Контурная пластика</h6>
+                                        </a>                                      
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="item-services">
+                                            <div class="item-services__img">
+                                                <div class="media-contain"><img src="img/service-2.png" alt="Биорепарация"></div>
+                                            </div>                                          
+                                            <h6>Биорепарация</h6>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="item-services">
+                                            <div class="item-services__img">
+                                                <div class="media-contain"><img src="img/service-3.png" alt="Реструктуризация"></div>
+                                            </div>                                            
+                                            <h6>Реструктуризация</h6>
+                                        </a>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <a href="#" class="item-services">
+                                            <div class="item-services__img">
+                                                <div class="media-contain"><img src="img/service-4.png" alt="Ботулинотерапия"></div>
+                                            </div>                                           
+                                            <h6>Ботулинотерапия</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="nav-btns">
+                                    <button type="button" class="btn nav-btn nav-btn--prev"><svg><use xlink:href="img/icons/sprite.svg#btn-prev"></use></svg></button>
+                                    <button type="button" class="btn nav-btn nav-btn--next"><svg><use xlink:href="img/icons/sprite.svg#btn-next"></use></svg></button>
+                                </div>
+                            </div>
+                        </section>
+                        <!--brands-->
+                        <section class="section brands">
+                            <div class="section-top">
+                                <h2 class="text-m">Бренды</h2>
+                                <a href="#" class="btn chevron-btn">Смотреть все<svg><use xlink:href="img/icons/sprite.svg#btn-next"></use></svg></a>
+                            </div>
+                            <div class="brands__row">
+                                <a href="#" class="item-bg item-brand">                                    
+                                    <div class="media-contain"><img src="img/brands-1.png" alt=""></div>
+                                </a>
+                                <a href="#" class="item-bg item-brand">
+                                    <div class="media-contain"><img src="img/brands-2.png" alt=""></div>
+                                </a>
+                                <a href="#" class="item-bg item-brand">
+                                    <div class="media-contain"><img src="img/brands-3.png" alt=""></div>
+                                </a>
+                                <a href="#" class="item-bg item-brand">
+                                    <div class="media-contain"><img src="img/brands-4.png" alt=""></div>
+                                </a>
+                                <a href="#" class="item-bg item-brand">
+                                    <div class="media-contain"><img src="img/brands-5.png" alt=""></div>
+                                </a>
+                                <a href="#" class="item-bg item-brand">
+                                    <div class="media-contain"><img src="img/brands-6.png" alt=""></div>
+                                </a>
+                                <a href="#" class="item-bg item-brand">
+                                    <div class="media-contain"><img src="img/brands-7.png" alt=""></div>
+                                </a>
+                            </div>
+                        </section>
+                        <!--popular-->
+                        <section class="mb-40 popular">
+                            <div class="section-top">
+                                <h2>Популярные товары</h2>
+                                <div class="nav-btns">
+                                    <button type="button" class="btn nav-btn nav-btn--prev"><svg><use xlink:href="img/icons/sprite.svg#btn-prev"></use></svg></button>
+                                    <button type="button" class="btn nav-btn nav-btn--next"><svg><use xlink:href="img/icons/sprite.svg#btn-next"></use></svg></button>
+                                </div>
+                            </div>
+                            <div class="popular__item">
+                                <div class="media-cover">
+                                    <picture>
+                                        <source srcset="img/popular.webp" media="(min-width: 1400.98px)" type="image/webp">
+                                        <source srcset="img/popular.jpg" media="(min-width: 1400.98px)">
+                                        <source srcset="img/popular-m.webp" media="(min-width: 767.98px)" type="image/webp">
+                                        <source srcset="img/popular-m.jpg" media="(min-width: 767.98px)">
+                                        <source srcset="img/popular-s.webp" type="image/webp">
+                                        <source srcset="img/popular-s.jpg"> 
+                                        <img src="img/popular.jpg" alt="">
+                                    </picture>
+                                </div>
+                                <div class="popular__item--content">
+                                    <h2 class="text-m">LINERASE<br>коллаген</h2>
+                                </div>
+                            </div>
+                            <div class="popular__cat">
+                                <div class="swiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">@@include("_card.html",{"nmb":1,"title":"Релатокс 50 ед.", "fav": false, "bonus": false, "price": false})</div>
+                                        <div class="swiper-slide">@@include("_card.html",{"nmb":2,"title":"Релатокс 100 ед.", "fav": false, "bonus": false, "price": false})</div>
+                                        <div class="swiper-slide">@@include("_card.html",{"nmb":3,"title":"Гель КОЛЛОСТ 7% 1,5 мл", "fav": false, "bonus": false, "price": false})</div>
+                                        <div class="swiper-slide">@@include("_card.html",{"nmb":4,"title":"Канюли Silkann 22G/50mm (25 шт.)", "fav": false, "bonus": false, "price": false})</div>
+                                        <div class="swiper-slide">@@include("_card.html",{"nmb":1,"title":"Релатокс 50 ед.", "fav": false, "bonus": false, "price": false})</div>
+                                    </div>                                  
+                                </div>
+                            </div>
+                        </section>
+                        <!--main-rec-->
+                        <section class="section switch-block main-rec">
+                            <div class="section-top">
+                                <div class="tabs">
+                                    <span class="active" data-nav="">Рекомендуемые</span>
+                                    <span data-nav>Новинки</span>
+                                </div>
+                            </div>
+                            <div class="main-rec__swipers">
+                                <div class="swiper6 main-rec__block active" data-block="">
+                                    <div class="nav-btns">
+                                        <button type="button" class="btn nav-btn nav-btn--prev"><svg><use xlink:href="img/icons/sprite.svg#btn-prev"></use></svg></button>
+                                        <button type="button" class="btn nav-btn nav-btn--next"><svg><use xlink:href="img/icons/sprite.svg#btn-next"></use></svg></button>
+                                    </div>
+                                    <div class="swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">@@include("_card.html",{"nmb":1,"title":"Релатокс 50 ед.", "fav": false, "bonus": false, "price": true})</div>
+                                            <div class="swiper-slide">@@include("_card.html",{"nmb":2,"title":"Релатокс 100 ед.", "fav": false, "bonus": false, "price": false})</div>
+                                            <div class="swiper-slide">@@include("_card.html",{"nmb":3,"title":"Гель КОЛЛОСТ 7% 1,5 мл", "fav": false, "bonus": false, "price": false})</div>
+                                            <div class="swiper-slide">@@include("_card.html",{"nmb":4,"title":"Канюли Silkann 22G/50mm (25 шт.)", "fav": false, "bonus": false, "price": false})</div>
+                                            <div class="swiper-slide">@@include("_card.html",{"nmb":1,"title":"Релатокс 50 ед.", "fav": false, "bonus": false, "price": false})</div>
+                                            <div class="swiper-slide">@@include("_card.html",{"nmb":2,"title":"Релатокс 100 ед.", "fav": false, "bonus": false, "price": false})</div>
+                                            <div class="swiper-slide">@@include("_card.html",{"nmb":3,"title":"Гель КОЛЛОСТ 7% 1,5 мл", "fav": false, "bonus": false, "price": false})</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper6 main-rec__block" data-block="">
+                                    <div class="nav-btns">
+                                        <button type="button" class="btn nav-btn nav-btn--prev"><svg><use xlink:href="img/icons/sprite.svg#btn-prev"></use></svg></button>
+                                        <button type="button" class="btn nav-btn nav-btn--next"><svg><use xlink:href="img/icons/sprite.svg#btn-next"></use></svg></button>
+                                    </div>
+                                    <div class="swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">@@include("_card.html",{"nmb":1,"title":"Релатокс 50 ед.", "fav": false, "bonus": false, "price": false})</div>
+                                            <div class="swiper-slide">@@include("_card.html",{"nmb":2,"title":"Релатокс 100 ед.", "fav": false, "bonus": false, "price": false})</div>
+                                            <div class="swiper-slide">@@include("_card.html",{"nmb":3,"title":"Гель КОЛЛОСТ 7% 1,5 мл", "fav": false, "bonus": false, "price": false})</div>
+                                            <div class="swiper-slide">@@include("_card.html",{"nmb":4,"title":"Канюли Silkann 22G/50mm (25 шт.)", "fav": false, "bonus": false, "price": false})</div>
+                                            <div class="swiper-slide">@@include("_card.html",{"nmb":1,"title":"Релатокс 50 ед.", "fav": false, "bonus": false, "price": false})</div>
+                                            <div class="swiper-slide">@@include("_card.html",{"nmb":2,"title":"Релатокс 100 ед.", "fav": false, "bonus": false, "price": false})</div>
+                                            <div class="swiper-slide">@@include("_card.html",{"nmb":3,"title":"Гель КОЛЛОСТ 7% 1,5 мл", "fav": false, "bonus": false, "price": false})</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!--partners-->
+                        <section class="section partners">
+                            <div class="section-top">
+                                <h2 class="text-m">Нам доверяют</h2>
+                                <div class="nav-btns">
+                                    <button type="button" class="btn nav-btn nav-btn--prev"><svg><use xlink:href="img/icons/sprite.svg#btn-prev"></use></svg></button>
+                                    <button type="button" class="btn nav-btn nav-btn--next"><svg><use xlink:href="img/icons/sprite.svg#btn-next"></use></svg></button>
+                                </div>
+                            </div>
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><div class="media-contain"><img src="img/partner-1.png" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="media-contain"><img src="img/partner-2.png" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="media-contain"><img src="img/partner-3.png" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="media-contain"><img src="img/partner-4.png" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="media-contain"><img src="img/partner-5.png" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="media-contain"><img src="img/partner-6.png" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="media-contain"><img src="img/partner-1.png" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="media-contain"><img src="img/partner-2.png" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="media-contain"><img src="img/partner-3.png" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="media-contain"><img src="img/partner-4.png" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="media-contain"><img src="img/partner-5.png" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="media-contain"><img src="img/partner-6.png" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="media-contain"><img src="img/partner-1.png" alt=""></div></div>
+                                </div>
+                            </div>
+                        </section>
+                        <!--edu-->
+                        <section class="section edu">
+                            <div class="edu__row">
+                                <div class="item-bg item-edu">
+                                    <div class="media-cover">
+                                        <picture>
+                                            <source srcset="img/edu-1.webp" media="(min-width: 575.98px)" type="image/webp">
+                                            <source srcset="img/edu-1.jpg" media="(min-width: 575.98px)">
+                                            <source srcset="img/edu-1-mob.webp" type="image/webp">
+                                            <source srcset="img/edu-1-mob.jpg"> 
+                                            <img src="img/edu-1.jpg" alt="">
+                                        </picture>
+                                    </div>
+                                    <div class="item-bg__content">
+                                        <div class="item-edu__top">
+                                            <h2 class="h1">Учебный центр<br>Beauty Expert</h2>
+                                            <div class="item-bg__lbl">
+                                                <span class="lbl-teacher">Курсы косметолога</span>
+                                                <span class="lbl-medal-star">Индивидуальное обучение</span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="btn stroke-btn stroke-btn--light">Заказать звонок</a>
+                                    </div>
+                                </div>
+                                <div class="item-bg item-edu item-edu--contact">
+                                    <div class="item-bg__content">
+                                        <h3>Запись на обучение по телефонам:</h3>
+                                        <div class="item-edu__contacts">
+                                            <div class="item-contact">
+                                                <span class="item-contact__icon"><svg><use xlink:href="img/icons/sprite.svg#phone"></use></svg></span>
+                                                <a href="tel:84959891819">+7 495 989-18-19</a></div>
+                                            <div class="item-contact">
+                                                <span class="item-contact__icon"><svg><use xlink:href="img/icons/sprite.svg#phone"></use></svg></span>
+                                                <a href="tel:88003331819">8 800 333-18-19</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item-bg item-edu">
+                                    <div class="media-cover">
+                                        <img src="img/edu-2.jpg" alt="">
+                                    </div>
+                                    <div class="item-bg__content">
+                                        <div class="item-edu__top">
+                                            <h3>Обучающие материалы</h3>
+                                            <div class="item-bg__lbl">
+                                                <span class="lbl-teacher"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item-bg item-edu">
+                                    <div class="media-cover">
+                                        <img src="img/edu-3.jpg" alt="">
+                                    </div>
+                                    <div class="item-bg__content">
+                                        <div class="item-edu__top">
+                                            <h3>Литература</h3>
+                                            <div class="item-bg__lbl">
+                                                <span class="lbl-book"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item-bg item-edu">
+                                    <div class="media-cover">
+                                        <img src="img/edu-4.jpg" alt="">
+                                    </div>
+                                    <div class="item-bg__content">
+                                        <div class="item-edu__top">
+                                            <h3>Тренинги</h3>
+                                            <div class="item-bg__lbl">
+                                                <span class="lbl-note"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>
         </main>
          <!--footer-->
-        <footer class="footer">
-    <div class="container">
-        <div class="footer__top">
-            <div class="footer__col">
-                <div class="shadow-block col-footer">
-                    <h3>Контакты</h3>
-                    <div class="footer__contact">
-                        <h6>Телефон</h6>
-                        <a href="tel:84959891819">+7 495 989-18-19</a>
-                        <a href="tel:88003331819">8 800 333-18-19</a>
-                    </div>
-                    <div class="footer__contact">
-                       <h6>E-mail</h6> 
-                       <a href="mailto:info@mybex.ru">info@mybex.ru</a>
-                    </div>
-                    <div class="social">
-                        <a href="#" target="_blank" class="social__item"><img src="img/logo/vk.svg" alt="VK"></a>
-                        <a href="#" target="_blank" class="social__item"><img src="img/logo/telegram.svg" alt="Telegram"></a>
-                        <a href="#" target="_blank" class="social__item"><img src="img/logo/youtube.svg" alt="Youtube"></a>
-                        <a href="#" target="_blank" class="social__item"><img src="img/logo/whatsapp.svg" alt="Whatsapp"></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer__col footer__col--grid">
-                <div class="shadow-block col-footer">
-                    <h3>Режим работы</h3>
-                    <span>пн-пт:  9:30 - 18:30<br>сб-вс: выходной</span>
-                </div>
-                <div class="shadow-block col-footer">
-                    <h3>Адрес</h3>
-                    <span>107076, г. Москва,<br>Стромынский переулок, д.6 (м. Сокольники)</span>
-                    <span>191015, г. Санкт-Петербург,<br>ул.9-я Советская, д.4-6, А, офис 226</span>
-                </div>
-            </div>
-            <div class="footer__col">
-                <div class="shadow-block col-footer">
-                    <h3>Покупателям</h3>
-                    <ul>
-                        <li><a href="#">Заказать прайс</a></li>
-                        <li><a href="#">Производители</a></li>
-                        <li><a href="#">Оплата</a></li>
-                        <li><a href="#">Доставка</a></li>
-                        <li><a href="#">Гарантии</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href="#">Контакты</a></li>
-                        <li><a href="#">Акции</a></li>
-                        <li><a href="#">Новости</a></li>
-                        <li><a href="#">Поставщикам</a></li>
-                        <li><a href="#">Дистанционная продажа</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer__col">
-                <div class="shadow-block col-footer">
-                    <h3>Важное</h3>
-                    <ul>
-                        <li><a href="#">Правила конфиденциальности</a></li>
-                        <li><a href="#">Лицензии и реквизиты</a></li>
-                        <li><a href="#">Бьюти-бонусы</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href="#">Отзывы</a></li>
-                        <li><a href="#">Расписание</a></li>
-                        <li><button type="button" class="btn main-btn mod-open-btn" data-modal="subscribe-modal">Подписаться на новости</button></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer__bottom">
-            <div class="footer__copy">
-                LLC Beauty Expert.<br>All rights reserved. 2024.
-            </div>
-            <div class="payments">
-                <img src="img/logo/mastercard.svg" alt="Mastercard">
-                <img src="img/logo/visa.svg" alt="Visa">
-                <img src="img/logo/mir.svg" alt="МИР">
-                <img src="img/logo/sbp.svg" alt="СБП">
-            </div>
-            <div class="footer__dev">
-                <noindex>
-                    Дизайн и разработка <a href="https://omniagency.ru/" target="_blank" rel="nofollow">OMNI Agency</a>
-                </noindex>
-            </div>
-            <div class="footer__support">
-                <button type="button" class="btn main-btn main-btn--light mod-open-btn" data-modal="support-modal">Написать в поддержку</button>
-            </div>
-        </div>
-    </div>
-</footer>
-        <!--tippy-->
+        @@include('_footer.html', {"main": true})
+       <!--tippy-->
 <div class="tippy-content"></div>
 <!--price-modal-->
 <div class="modal price-modal" id="price-modal">
@@ -516,7 +512,7 @@
                 <div class="js-cart">
                     <div class="order-cart">
                         <a href="#" class="order-cart__preview">
-                            <div class="media-contain"><picture><source srcset="img/product-1-1-sm.webp" type="image/webp"><img src="img/product-1-1-sm.png" alt="Liquidimplant™ Labium 1 мл."></picture></div>
+                            <div class="media-contain"><img src="img/product-1-1-sm.png" alt="Liquidimplant™ Labium 1 мл."></div>
                         </a>
                         <div class="order-cart__info">
                             <h5 class="order-cart__title"><a href="#">Liquidimplant™ Labium 1 мл.</a></h6>
@@ -551,7 +547,7 @@
                 <div class="js-cart">
                     <div class="order-cart">
                         <a href="#" class="order-cart__preview">
-                            <div class="media-contain"><picture><source srcset="img/product-1-1-sm.webp" type="image/webp"><img src="img/product-1-1-sm.png" alt="Liquidimplant™ Labium 1 мл."></picture></div>                      
+                            <div class="media-contain"><img src="img/product-1-1-sm.png" alt="Liquidimplant™ Labium 1 мл."></div>                      
                         </a>
                         <div class="order-cart__info">
                             <h5 class="order-cart__title"><a href="#">Liquidimplant™ Labium 1 мл.</a></h6>   
@@ -1015,7 +1011,7 @@
     </div>
 </div>
 <!--error-modal-->
-<div class="modal error-modal" id="error-modal">
+<div class="modal error-modal open" id="error-modal">
     <div class="modal__overlay">
         <div class="modal__content">
             <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
@@ -1067,12 +1063,7 @@
 
 
     </div>
-    <script src="js/libs/jquery.min.js"></script>
-<script src="js/libs/nouislider.min.js"></script>
-<script src="js/libs/inputmask.min.js"></script>
-<script src="js/libs/swiper.min.js"></script>
-<script src="js/libs/fancybox.min.js"></script>
-<script src="js/main.js"></script>
+    @@include('_js.html')
 </body>
 
 </html>
