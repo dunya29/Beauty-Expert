@@ -79,10 +79,6 @@
             display: inline-flex;
             align-items: center;
             margin: 4px;
-            &.active svg {
-                fill: $red;
-                stroke: $red;
-            }
             svg {
                 flex: 0 0 20px;
                 width: 20px;

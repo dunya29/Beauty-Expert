@@ -48,9 +48,13 @@
                                     <form action="" class="cat-top__filter">
                                         <div class="cat-top__items">
                                             <div class="select-custom select-custom--manu">
-                                                <div class="select-custom__selected"><span>Производитель</span><svg><use xlink:href="img/icons/sprite.svg#btn-down"></use></svg></div>
+                                                <div class="select-custom__selected">
+                                                    <span>Производитель</span>
+                                                    <span class="filter-count"></span>
+                                                    <svg><use xlink:href="img/icons/sprite.svg#btn-down"></use></svg>
+                                                </div>
                                                 <div class="select-custom__body">
-                                                    <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"></button>
+                                                    <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
                                                     <div class="custom-scroll select-custom__options">
                                                         <div class="h1 select-custom__lbl">Производитель</div>
                                                         <div class="select-custom__option">
@@ -71,7 +75,7 @@
                                             <div class="select-custom">
                                                 <div class="select-custom__selected"><span>Цена</span><svg><use xlink:href="img/icons/sprite.svg#btn-down"></use></svg></div>
                                                 <div class="select-custom__body">
-                                                    <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"></button>
+                                                    <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
                                                     <div class="custom-scroll select-custom__options">
                                                         <div class="h1 select-custom__lbl">Цена</div>
                                                         <div class="range-filter" data-min="6000" data-max="17000" data-start="6000" data-end="17000">
@@ -88,18 +92,18 @@
                                             <div class="select-custom">
                                                 <div class="select-custom__selected"><span>Наличие</span><svg><use xlink:href="img/icons/sprite.svg#btn-down"></use></svg></div>
                                                 <div class="select-custom__body">
-                                                    <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"></button>
+                                                    <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
                                                     <div class="custom-scroll select-custom__options">
                                                         <div class="h1 select-custom__lbl">Наличие</div>
                                                         <div class="select-custom__option">
                                                             <label class="item-checkbox">
-                                                                <input type="checkbox">
+                                                                <input type="radio" name="f-stock">
                                                                 <span>Только в наличии</span>
                                                             </label>
                                                         </div>
                                                         <div class="select-custom__option">
                                                             <label class="item-checkbox">
-                                                                <input type="checkbox">
+                                                                <input type="radio" name="f-stock">
                                                                 <span>Ожидается поставка</span>
                                                             </label>
                                                         </div>
@@ -111,7 +115,7 @@
                                             <div class="select-custom select-sort">
                                                 <div class="select-custom__selected"><svg><use xlink:href="img/icons/sprite.svg#sort"></use></svg><span>По умолчанию</span></div>
                                                 <div class="select-custom__body">
-                                                    <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"></button>
+                                                    <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
                                                     <div class="custom-scroll select-custom__options">
                                                         <div class="h1 select-custom__lbl">Сортировка</div>
                                                         <div class="select-custom__option">
@@ -137,6 +141,10 @@
                                             </div>
                                         </div>
                                     </form>
+                                    <div class="filter-selected">
+                                        <div class="filter-selected__items"></div>
+                                        <button type="button" class="filter-selected__reset">Очистить все<svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+                                    </div>
                                 </div>
                                 <!--cat-wrapper-->
                                 <div class="cat-wrapper">

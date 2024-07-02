@@ -30,7 +30,7 @@
             }
             <div class="card__action">
                 @@if ( price === true) {
-                    <button class="btn main-btn card__add">Купить</button>
+                    <button class="btn main-btn card__add" onclick="showLbl(document.querySelector('.js-add-cart'))">Купить</button>
                     <div class="quantity">
                         <button class="quantity__btn js-minus" type="button"></button>
                         <span class="quantity__count"><input type="number" value="1"></span>

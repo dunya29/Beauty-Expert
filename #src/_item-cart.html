@@ -17,10 +17,10 @@
             <h6>Ботулинический токсин типа А, гемагглютинин комплекс</h6>
             <div class="item-cart__action">
                 @@if ( fav === true) {
-                    <button type="button" class="active"><svg><use xlink:href="img/icons/sprite.svg#cart-fav"></use></svg>В избранное</button>
+                    <button type="button" class="js-fav active"><svg><use xlink:href="img/icons/sprite.svg#cart-fav"></use></svg>В избранное</button>
                 }
                 @@if ( fav === false) {
-                    <button type="button"><svg><use xlink:href="img/icons/sprite.svg#cart-fav"></use></svg>В избранное</button>
+                    <button type="button" class="js-fav"><svg><use xlink:href="img/icons/sprite.svg#cart-fav"></use></svg>В избранное</button>
                 }
                 <button type="button"><svg><use xlink:href="img/icons/sprite.svg#del"></use></svg>Удалить</button>
             </div>

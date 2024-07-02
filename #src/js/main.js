@@ -6,6 +6,8 @@ if (document.querySelector(".preloader")) {
     }, 100);
   });
 }
+const overlay = document.querySelector(".overlay")
+const selectOverlay = document.querySelector(".select-overlay")
 const fixedBtns = document.querySelector(".fixed-btns")
 const jsPageUp = document.querySelector(".js-pageUp")
 const customSelect = document.querySelectorAll(".select-custom")
@@ -17,6 +19,7 @@ const modal = document.querySelectorAll(".modal")
 const successModal = document.querySelector("#success-modal")
 const errorModal = document.querySelector("#error-modal")
 let animSpd = 400
+let lblTimeout
 //get path to sprite id
 function sprite(id) {
   return '<svg><use xlink:href="img/icons/sprite.svg#' + id + '"></use></svg>'
@@ -46,6 +49,9 @@ function disableScroll() {
 function openSelectCustom(select) {
   select.classList.add("open");
   select.setAttribute("aria-expanded", true);
+  if (!select.parentNode.classList.contains("select-form") && window.innerWidth > 767.98) {
+    selectOverlay.classList.add("show")
+  }
   select.querySelectorAll(".select-custom__options input").forEach(item => {
       item.addEventListener("change", (e) => {
         setActiveOption(select)
@@ -77,7 +83,11 @@ function setActiveOption(select) {
 function closeSelectCustom(select) {
   select.classList.remove("open");
   select.setAttribute("aria-expanded", false);
+  selectOverlay.classList.remove("show")
 }
+selectOverlay.addEventListener("click", () => {
+  customSelect.forEach(sel => closeSelectCustom(sel))
+})
 //setSuccessTxt
 function setSuccessTxt(title = false, btnTxt = false) {
   successModal.querySelector("h3").textContent = title ? title : "Заявка успешно отправлена"
@@ -195,17 +205,13 @@ window.addEventListener("scroll", () => {
       header.classList.add("fixed-block")
       if ((scrollPos() > document.querySelector(".header__inner").clientHeight && scrollPos() > lastScroll && !header.classList.contains("unshow"))) {
           header.classList.add("unshow")
+          document.querySelectorAll(".js-lbl").forEach(item => item.classList.add("header-hidden"))
           if (document.querySelector(".menu--desktop.active")) {
             document.querySelector(".menu--desktop").querySelector('.icon-menu').click()
           }
-          if (document.querySelector(".search-form__result")) {
-            document.querySelector(".search-form__result").classList.add("hidden")
-          }
       } else if (scrollPos() < lastScroll && header.classList.contains("unshow")) {
           header.classList.remove("unshow")
-          if (document.querySelector(".search-form__result")) {
-            document.querySelector(".search-form__result").classList.remove("hidden")
-          }
+          document.querySelectorAll(".js-lbl").forEach(item => item.classList.remove("header-hidden"))
       }
   } else {
       header.classList.remove("fixed")
@@ -406,6 +412,7 @@ if (searchForm) {
     showResetBtn(item)
     item.querySelector("input").addEventListener("input",() => showResetBtn(item))
     item.addEventListener("reset", () => {
+      item.classList.remove("show-results")
       item.querySelector("input").setAttribute("value", "")
       showResetBtn(item) 
     })
@@ -537,6 +544,24 @@ if (customSelect) {
       })
   })
 }
+//js-fav
+function favOnClick() {
+  const jsFav = document.querySelectorAll(".js-fav") 
+  if (jsFav) {
+    jsFav.forEach(item => {
+      item.addEventListener("click", () => {
+        if (item.classList.contains("active")) {
+          item.classList.remove("active")
+          showLbl(document.querySelector(".js-remove-fav"))
+        } else {
+          item.classList.add("active")
+          showLbl(document.querySelector(".js-add-fav"))
+        }
+      })
+    })
+  }
+}
+favOnClick()
 //card
 function cardOnAdd() {
   const card = document.querySelectorAll(".card")
@@ -570,14 +595,20 @@ function setQuantity() {
         item.querySelector(".js-minus").addEventListener("click", () => {
           if (inp.value > 1) {
             inp.value--
+            clearTimeout(lblTimeout)
+            showLbl(document.querySelector(".js-add-cart"))
           } else {
             item.parentNode.classList.remove("in-card")
+            clearTimeout(lblTimeout)
+            showLbl(document.querySelector(".js-remove-cart"))
           }
           disabledMinBtn(item, inp.value)
           addToCart()
         })
         item.querySelector(".js-plus").addEventListener("click", () => {
           inp.value++
+          clearTimeout(lblTimeout)
+          showLbl(document.querySelector(".js-add-cart"))
           disabledMinBtn(item, inp.value)
           addToCart()
         })
@@ -585,6 +616,12 @@ function setQuantity() {
   }
 }
 setQuantity()
+// showmore
+function showMore() {
+  cardOnAdd()
+  favOnClick()
+  setQuantity()
+}
 // intro swiper
 const intro = document.querySelector('.intro')
 if (intro) {
@@ -1094,4 +1131,84 @@ if (filterForm && dataFilterForm) {
       })
     })
   })
+}
+
+// setLbl
+function showLbl(el) {
+  overlay.classList.add("show")
+  document.querySelectorAll(".js-lbl").forEach(item => item.classList.remove("show"))
+  el.classList.add("show")
+  if (lblTimeout) {
+    clearTimeout(lblTimeout)
+  } 
+  lblTimeout = setTimeout(function () {
+    overlay.classList.remove("show")
+    el.classList.remove("show")
+  }, 3500);
+}
+// filter inputs onchange
+const catTopFilter = document.querySelector(".cat-top__filter")
+const filterSelected = document.querySelector(".filter-selected__items")
+if (filter && filterSelected) {
+    const catfilter = {
+        checkInp: function (inp) {
+            inp.checked = true
+            inp.setAttribute("checked", true)
+        },
+        uncheckInp: function (inp) {
+            inp.checked = false
+            inp.removeAttribute("checked")
+        },
+        setSelected: function (item) {
+            let txt = item.parentNode.querySelector("span:last-child").textContent
+            let idx = item.getAttribute("data-id")
+            filterSelected.insertAdjacentHTML("afterbegin", `<div class="filter-selected__item" data-target="${idx}">${txt}${sprite("close")}</div>`)
+        },
+        removeSelected: function (index) {
+            if (filterSelected.querySelector(`[data-target="${index}"]`)) {
+                filterSelected.querySelector(`[data-target="${index}"]`).remove()
+            }
+        },
+        selectedOnClick: function (e) {
+            filterSelected.querySelectorAll(".filter-selected__item").forEach((item, idx) => {
+                if (item.contains(e.target)) {
+                    let dataTarget = item.getAttribute("data-target")
+                    filter.querySelectorAll("label input[type=checkbox]")[dataTarget].click()
+                    item.remove()
+                    catfilter.checkedCount(filter.querySelectorAll("label input[type=checkbox]")[dataTarget])
+                }
+            })
+        },
+        resetFilter: function () {
+            filter.querySelectorAll("label input[type=checkbox]").forEach(inp => {
+                inp.checked = false
+                inp.removeAttribute("checked")
+                catfilter.checkedCount(inp)
+            })
+            filterSelected.innerHTML = ""
+            if (catTopFilter.querySelector(".select-sort input[name=f-sort]")) {
+              catTopFilter.querySelectorAll(".select-sort input[name=f-sort]")[0].parentNode.click()
+            }
+        },
+        checkedCount: function (inp) {
+          if (inp.closest(".select-custom") && inp.closest(".select-custom").querySelector(".filter-count")) {
+            let count = inp.closest(".select-custom").querySelectorAll("label input[type=checkbox]:checked").length
+            inp.closest(".select-custom").querySelector(".filter-count").textContent = count > 0 ? count : ""
+          }        
+        }
+    }
+    catTopFilter.querySelectorAll("label input[type=checkbox]").forEach((inp, i) => {
+        inp.setAttribute("data-id", i)
+        let index = inp.getAttribute("data-id")
+        inp.addEventListener("change", () => {
+            if (inp.checked) {
+                catfilter.setSelected(inp)
+            } else {
+                catfilter.removeSelected(index)
+            }
+            catfilter.checkedCount(inp)
+        })
+    })
+    filterSelected.addEventListener("click", e => catfilter.selectedOnClick(e))
+    document.querySelector(".filter-selected__reset").addEventListener("click", () => catfilter.resetFilter())
 }

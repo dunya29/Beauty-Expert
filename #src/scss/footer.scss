@@ -8,6 +8,9 @@
     a, span {
         color: $dark-gray;
     }
+    a:hover {
+        color: $blue;
+    }
     .social {
         margin-top: 30px;
     }

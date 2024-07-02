@@ -99,21 +99,31 @@
                     
                     
                         <!--search-form-->
+
+
 <form action="" class="search-form" onsubmit="event.preventDefault();searchFormSuccess(this)">
+
     <div class="search-form__inner">
         <svg class="search-form__icon"><use xlink:href="img/icons/sprite.svg#search"></use></svg>
+        
+        
         <input type="text" name="" placeholder="Найти">
+        
         <button type="reset" class="search-form__reset" aria-label="Очистить поиск">
             <svg><use xlink:href="img/icons/sprite.svg#close"></use></svg>
         </button>
     </div>
-    
+    <div class="search-form__result">
+        <div class="search-form__result-wrap">
+            
+        </div>
+    </div>
 </form>
                     
                 </div>
                 <div class="header__right">
-                    <a href="#"><svg><use xlink:href="img/icons/sprite.svg#fav"></use></svg><span>7</span></a>
-                    <a href="#"><svg><use xlink:href="img/icons/sprite.svg#cart"></use></svg><span></span></a>
+                    <a href="#" class="js-fav-main"><svg><use xlink:href="img/icons/sprite.svg#fav"></use></svg><span>7</span></a>
+                    <a href="#" class="js-cart-main"><svg><use xlink:href="img/icons/sprite.svg#cart"></use></svg><span></span></a>
                     <button class="btn main-btn header__profile mod-open-btn" data-modal="acc-modal">Войти</button>
                 </div>
             </div>
@@ -587,7 +597,7 @@
             
             <div class="card__action">
                 
-                    <button class="btn main-btn card__add">Купить</button>
+                    <button class="btn main-btn card__add" onclick="showLbl(document.querySelector('.js-add-cart'))">Купить</button>
                     <div class="quantity">
                         <button class="quantity__btn js-minus" type="button"></button>
                         <span class="quantity__count"><input type="number" value="1"></span>
@@ -1197,7 +1207,7 @@
 <div class="modal price-modal" id="price-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="modal__top">
                     <h3>Прайс-лист</h3>
@@ -1256,7 +1266,7 @@
 <div class="modal subscribe-modal" id="subscribe-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="modal__top">
                     <h3>Подписаться на рассылку</h3>
@@ -1279,7 +1289,7 @@
 <div class="modal support-modal" id="support-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="modal__top">
                     <h3>Написать в поддержку</h3>
@@ -1309,7 +1319,7 @@
 <div class="modal cart-modal" id="cart-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="modal__top">
                     <h3>Товар добавлен в корзину</h3>
@@ -1344,7 +1354,7 @@
 <div class="modal order-modal" id="order-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="modal__top">
                     <h3>Купить в один клик</h3>
@@ -1388,7 +1398,7 @@
 <div class="modal del-modal" id="del-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="icon-del"></div>
                 <h3>Вы уверены, что хотите очистить корзину?</h3>
@@ -1404,7 +1414,7 @@
 <div class="modal recipient-modal" id="recipient-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="modal__top">
                     <h3>Изменение получателя</h3>
@@ -1439,7 +1449,7 @@
 <div class="modal acc-modal" id="acc-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="modal__top">
                     <h3>Войти в аккаунт</h3>
@@ -1467,7 +1477,7 @@
 <div class="modal reg-modal" id="reg-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="modal__top">
                     <h3>Зарегистрироваться</h3>
@@ -1623,7 +1633,7 @@
 <div class="modal profile-modal" id="profile-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="modal__top">
                     <h3>Редактирование личных данных</h3>
@@ -1670,7 +1680,7 @@
 <div class="modal messages-modal" id="messages-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="modal__top">
                     <h3>Написать сообщение</h3>
@@ -1696,7 +1706,7 @@
 <div class="modal password-modal" id="password-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="modal__top">
                     <h3>Восстановить пароль</h3>
@@ -1720,7 +1730,7 @@
 <div class="modal password-reset-modal" id="password-reset-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="modal__top">
                     <h3>Ссылка на сброс пароля отправлена</h3>
@@ -1734,7 +1744,7 @@
 <div class="modal review-modal" id="review-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="modal__top">
                     <h3>Добавить отзыв</h3>
@@ -1780,7 +1790,7 @@
 <div class="modal success-modal" id="review-success-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="icon-success"></div>
                 <h3>Спасибо за Ваш отзыв!</h3>
@@ -1793,7 +1803,7 @@
 <div class="modal success-modal" id="password-success-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="icon-success"></div>
                 <h3>Пароль успешно изменен</h3>
@@ -1806,7 +1816,7 @@
 <div class="modal success-modal" id="success-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="icon-success"></div>
                 <h3></h3>
@@ -1819,7 +1829,7 @@
 <div class="modal error-modal open" id="error-modal">
     <div class="modal__overlay">
         <div class="modal__content">
-            <button type="button" class="btn-close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+            <button type="button" class="btn-close modal__close" aria-label="Закрыть всплывающее окно"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
             <div class="modal__scroll">
                 <div class="icon-error"></div>
                 <h3>Что-то пошло не так</h3>
