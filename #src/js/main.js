@@ -422,13 +422,13 @@ if (searchForm) {
 function addFile(files, item) {
   for (let i = 0; i < files.length; i++) {
     let file = files[i]
-    if (file.size >  10 * 1024 * 1024) {
+    if (file.size >  2 * 1024 * 1024) {
       item.querySelector("input").value = "" 
       item.classList.add("error")
       if (!item.parentNode.classList.contains("edu-profile")) {
         item.querySelectorAll(".file-form__item").forEach((el=>el.remove()));
       } 
-      item.querySelector(".item-form__error").textContent = "Файл должен быть менее 10 МБ"
+      item.querySelector(".item-form__error").textContent = "Файл должен быть менее 2 МБ"
       return
     } else if (!fileTypes.includes(file.type)) {
       item.querySelector("input").value = "" 
@@ -436,7 +436,7 @@ function addFile(files, item) {
       if (!item.parentNode.classList.contains("edu-profile")) {
         item.querySelectorAll(".file-form__item").forEach((el=>el.remove()));
       } 
-      item.querySelector(".item-form__error").textContent = 'Разрешённые форматы: png,jpg,jpeg,gif,bmp,pdf,txt,rtf,doc,docx,xls,xlsx,ppt,pptx,odt,ods,odp'
+      item.querySelector(".item-form__error").textContent = 'Разрешённые форматы: png,jpg,jpeg,pdf'
       return
     } else {
       item.classList.remove("error")
@@ -461,17 +461,8 @@ function addFile(files, item) {
   }
 }
 let fileTypes = [
-  "image/png", "image/jpeg","image/gif", "image/bmp", 
-  "text/plain", 
-  "application/rtf", 
-  "application/vnd.ms-powerpoint", 
-  "application/vnd.oasis.opendocument.presentation", 
-  "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-  "application/vnd.oasis.opendocument.spreadsheet", 
-  "application/msword", 
-  "application/vnd.openxmlformats-officedocument.wordprocessingml.document", 
+  "image/png", "image/jpeg", 
   "application/pdf", 
-  "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.oasis.opendocument.text"
 ]
 let dragEl
 if (document.querySelector(".file-form")) {
@@ -630,6 +621,7 @@ if (intro) {
     spaceBetween: 10,
     observer: true,
     observeParents: true,
+    watchSlidesProgress: true,
     pagination: {
       el: intro.querySelector('.swiper-pagination'),
       type: 'bullets',
@@ -665,6 +657,7 @@ if (services) {
     spaceBetween: 10,
     observer: true,
     observeParents: true,
+    watchSlidesProgress: true,
     navigation: {
       prevEl: services.querySelector(".nav-btn--prev"),
       nextEl: services.querySelector(".nav-btn--next"),
@@ -697,6 +690,7 @@ if (swiper3) {
       spaceBetween: 10,
       observer: true,
       observeParents: true,
+      watchSlidesProgress: true,
       navigation: {
         prevEl: item.querySelector(".nav-btn--prev"),
         nextEl: item.querySelector(".nav-btn--next"),
@@ -719,6 +713,7 @@ if (swiper4) {
       spaceBetween: 10,
       observer: true,
       observeParents: true,
+      watchSlidesProgress: true,
       navigation: {
         prevEl: item.querySelector(".nav-btn--prev"),
         nextEl: item.querySelector(".nav-btn--next"),
@@ -744,6 +739,7 @@ if (swiper6) {
       spaceBetween: 10,
       observer: true,
       observeParents: true,
+      watchSlidesProgress: true,
       navigation: {
         prevEl: item.querySelector(".nav-btn--prev"),
         nextEl: item.querySelector(".nav-btn--next"),
@@ -771,6 +767,7 @@ if (popular) {
     spaceBetween: 10,
     observer: true,
     observeParents: true,
+    watchSlidesProgress: true,
     navigation: {
       prevEl: popular.querySelector(".nav-btn--prev"),
       nextEl: popular.querySelector(".nav-btn--next"),
@@ -796,6 +793,7 @@ if (partners) {
     slidesPerView: 3,
     observer: true,
     observeParents: true,
+    watchSlidesProgress: true,
     grid: {
       rows: 2,
       fill: 'column'  

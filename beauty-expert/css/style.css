@@ -223,6 +223,7 @@ label {
 input,
 textarea {
   width: 100%;
+  font-family: "Inter", sans-serif;
 }
 
 button:focus,
@@ -882,6 +883,7 @@ h6,
 .item-form input,
 .item-form textarea,
 .item-form .select-custom__selected {
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
@@ -1560,6 +1562,11 @@ h6,
   overflow: hidden;
 }
 
+.page__aside--cat {
+  position: sticky;
+  top: 10px;
+}
+
 .page__content,
 .page__sticky-content {
   -webkit-box-flex: 1;
@@ -2164,6 +2171,11 @@ h6,
   margin: 6px;
 }
 
+.page__aside--cat {
+  -webkit-transition: top 0.3s linear;
+  transition: top 0.3s linear;
+}
+
 .preloader {
   background: #EEF5FF;
   display: -webkit-box;
@@ -2281,6 +2293,14 @@ h6,
 
 .header.fixed .header__bottom {
   padding: 11px 0;
+}
+
+.header.fixed + .main .page__aside--cat {
+  top: 118px;
+}
+
+.header.fixed.unshow + .main .page__aside--cat {
+  top: 10px;
 }
 
 .header.fixed.unshow .header__inner {
@@ -2465,7 +2485,8 @@ h6,
 }
 
 .js-cart-main,
-.js-fav-main {
+.js-fav-main,
+.header__profile--link {
   -webkit-box-flex: 0;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -2478,7 +2499,8 @@ h6,
 }
 
 .js-cart-main svg,
-.js-fav-main svg {
+.js-fav-main svg,
+.header__profile--link svg {
   fill: none;
   stroke: #0D0C1A;
   width: 100%;
@@ -2486,7 +2508,8 @@ h6,
 }
 
 .js-cart-main span,
-.js-fav-main span {
+.js-fav-main span,
+.header__profile--link span {
   font-size: 11px;
   font-weight: 600;
   line-height: 20px;

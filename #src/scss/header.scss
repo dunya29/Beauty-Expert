@@ -45,7 +45,13 @@
         .header__bottom {
             padding: 11px 0;
         }
+        & + .main .page__aside--cat {
+            top: 118px;
+        }
         &.unshow {
+            & + .main .page__aside--cat {
+                top: 10px;
+              }
             .header__inner {
                 transform: translateY(-100%);
             }
@@ -255,7 +261,7 @@
         }
     }
 }
-.js-cart-main, .js-fav-main {
+.js-cart-main, .js-fav-main, .header__profile--link {
     flex: 0 0 40px;
     width: 40px;
     height: 40px;
