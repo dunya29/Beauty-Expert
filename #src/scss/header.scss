@@ -12,6 +12,11 @@
                 opacity: 1;
             }
         }
+        .main-btn {
+            font-size: 14px;
+            padding: 0;
+            flex: 0 0 70px;
+        }
         &__result {
             &::before {
                 content: "";
@@ -204,6 +209,9 @@
     }
     @media (max-width: $bp4) {
         min-height: 106px;
+        .search-form .main-btn {
+            display: none;
+        }
         &__right, &__contacts {
             display: none;
         }

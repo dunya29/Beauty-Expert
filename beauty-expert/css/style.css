@@ -2259,6 +2259,14 @@ h6,
   opacity: 1;
 }
 
+.header .search-form .main-btn {
+  font-size: 14px;
+  padding: 0;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 70px;
+  flex: 0 0 70px;
+}
+
 .header .search-form__result::before {
   content: "";
   position: fixed;
@@ -8628,6 +8636,10 @@ h6,
 
   .header {
     min-height: 106px;
+  }
+
+  .header .search-form .main-btn {
+    display: none;
   }
 
   .header__right,
