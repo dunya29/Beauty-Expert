@@ -6782,6 +6782,10 @@ h6,
   min-height: 150px;
 }
 
+.review-modal__rate span {
+  cursor: default;
+}
+
 .fixed-menu {
   display: none;
   -webkit-transition: all 0.3s linear;
