@@ -583,6 +583,21 @@ function setQuantity() {
     quantity.forEach(item => {
         const inp = item.querySelector(".quantity__count input")
         disabledMinBtn(item, inp.value)
+        inp.addEventListener("change", e => {
+          if (Number.isInteger(e.target.value) || e.target.value >=1 ) {
+            if(e.target.value.split("")[0] == 0) {
+              inp.value = Math.round(e.target.value.substring(1))
+            } else {
+              inp.value = Math.round(e.target.value)
+            }          
+          } else {
+            inp.value = 1
+          }
+          clearTimeout(lblTimeout)
+          showLbl(document.querySelector(".js-add-cart"))
+          disabledMinBtn(item, inp.value)
+          addToCart()
+        })
         item.querySelector(".js-minus").addEventListener("click", () => {
           if (inp.value > 1) {
             inp.value--
